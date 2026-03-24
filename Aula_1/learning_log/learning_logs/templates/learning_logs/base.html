@@ -6,8 +6,16 @@
     <title>Title</title>
 </head>
 <body>
-    <a href="{% url 'index' %}">Leaning Log</a> -
-    <a href="{% url 'topics' %}">Tópicos</a>
+    <p>
+        <a href="{% url 'index' %}">Leaning Log</a> -
+        <a href="{% url 'topics' %}">Tópicos</a> -
+        {% if user.is_authenticaded %}
+            <p>Olá, {{ user.username }}</p>
+        {% else %}
+            <a href="{% url 'login' %}">Entrar</a>
+        {% endif %}
+
+    </p>
 
     {% block content %}{% endblock content %}
 
