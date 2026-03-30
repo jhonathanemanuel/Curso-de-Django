@@ -7,10 +7,10 @@
 <body>
     {% extends "learning_logs/base.html"%}
     {% block content %}
-        <form action="{% url 'login' %}" method="POST" >
+        <form action="{% url 'register' %}" method="POST" >
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit">Entrar</button>
+            <button type="submit">Registrar</button>
             <input type="hidden" name="next" value="{% url 'index' %}" />
         </form>
     {% endblock content %}
