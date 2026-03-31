@@ -57,12 +57,18 @@
         body { padding-top: 70px; }
     </style>
 
+    <div class="container">
+        <div>
+            {% block header %}{% endblock header %}
+        </div>
+        <div>
+            {% block content %}{% endblock content %}
+        </div>
+    </div>
 
-    {% block content %}{% endblock content %}
-
-    <footer>
-        <p>Aqui fica um rodapé</p>
-    </footer>
+<!--    <footer>-->
+<!--        <p>Aqui fica um rodapé</p>-->
+<!--    </footer>-->
 
     {% bootstrap_javascript %}
 </body>
