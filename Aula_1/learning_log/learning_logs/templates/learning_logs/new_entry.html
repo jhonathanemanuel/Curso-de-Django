@@ -1,22 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    {% extends 'learning_logs/base.html' %}
+{% extends 'learning_logs/base.html' %}
+{% load django_bootstrap5 %}
 
-    {% block content %}
-        <p><a href="{% url 'topic' topic.id %}">{{ topic }}</a></p>
+{% block header %}
+    <h3>
+        <a href="{% url 'topic' topic.id %}">{{ topic }}</a>
+    </h3>
+{% endblock header %}
 
-        <p>Adicione uma nova entrada"</p>
+{% block content %}
+    <p>Adicione uma nova entrada"</p>
 
-        <form action="{% url 'new_entry' topic.id %}" method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Adicionar</button>
-        </form>
-    {% endblock content%}
-</body>
-</html>
+    <form action="{% url 'new_entry' topic.id %}" method="POST">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <div class="mt-3">
+            <button type="submit" class="btn btn-primary w-100">Adicionar</button>
+        </div>
+    </form>
+{% endblock content %}
